@@ -1,0 +1,9 @@
+[user]
+    email = johnnyadsantos@gmail.com
+    name = Johnny Santos
+
+[alias]
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+    st = status
