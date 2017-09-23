@@ -2,6 +2,8 @@
 
 BASEDIR=$(realpath `dirname "$0"`)
 echo $BASEDIR
+echo "Using base directory '$BASEDIR'"
+echo
 echo "Creating symlinks..."
 
 for f in $BASEDIR/.*
@@ -11,11 +13,13 @@ done
 
 rm -f ~/.gitignore
 
+echo
 echo "Installing fonts..."
 
 mkdir -m=755 ~/.local/share/fonts > /dev/null
 cd ~/.local/share/fonts
 
+echo
 # Powerline font
 curl -O https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf
 
@@ -33,12 +37,34 @@ do
     [ -f "$f" ] && chmod 755 $f
 done
 
+echo
 echo "Rebuilding font cache..."
 fc-cache -f -v
 
 cd $BASEDIR
 
-echo "Installing powerline..."
-sudo pip install powerline-status
+echo
+echo "Installing all the software I need..."
+# TODO: This needs to be platform agnostic
+DEPS="
+git 
+tmux 
+vim 
+docker 
+mono 
+nodejs 
+npm
+"
+MACHINE_INFO=`uname -a`
 
+if [[ $MACHINE_INFO == *"MANJARO"* ]]; then
+    sudo pacman -Syu $DEPS
+elif [[ $MACHINE_INFO == *"UBUNTU"* ]]; then
+    sudo apt-get update -qq
+    sudo apt-get install -y $DEPS
+elif [[ $MACHINE_INFO == *"FEDORA"* ]]; then
+    sudo dnf update
+    sudo dnf install -y $DEPS
+fi
+sudo pip install powerline-status
 
