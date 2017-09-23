@@ -55,6 +55,7 @@ docker
 mono 
 nodejs 
 npm
+yarn
 "
 MACHINE_INFO=`uname -a`
 

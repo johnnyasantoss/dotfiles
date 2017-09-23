@@ -30,6 +30,13 @@ if [ -f $HOME/.bash_functions ]; then
     . $HOME/.bash_functions
 fi
 
+# Additional path sources
+
+if [ -d "$HOME/.yarn/bin" ]; then
+    export PATH=$PATH:"$HOME/.yarn/bin"
+fi
+
+
 # Tmux start
 if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && { tmux attach || exec tmux new-session && exit;}
