@@ -13,7 +13,13 @@ done
 
 rm -f ~/.gitignore
 
+echo
+echo "Changing permissions of ssh default keys..."
+sudo chmod 600 $HOME/.ssh/id_rsa
+sudo chmod 600 $HOME/.ssh/id_rsa.pub
+
 sleep 2
+
 echo
 echo "Installing fonts..."
 
