@@ -7,3 +7,5 @@
     branches = branch -a
     remotes = remote -v
     st = status
+[credential]
+	helper = cache --timeout=300

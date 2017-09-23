@@ -13,4 +13,8 @@ alias l="ls -CF"
 alias ..="cd .."
 alias ...="cd ../.."
 
-alias clip='xclip -sel clip'
+alias clip='xclip -selection clip'
+
+# SSH 
+alias ssh-add="ssh-add -t 1h"
+
