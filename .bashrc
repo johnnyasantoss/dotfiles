@@ -12,6 +12,7 @@ fi
 export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls'
 export MAINTAINER="johnnyadsantos@gmail.com"
 export EDITOR="vim"
+export VISUAL="vim"
 
 # Powerline start
 powerline-daemon -q
