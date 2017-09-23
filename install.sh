@@ -13,6 +13,7 @@ done
 
 rm -f ~/.gitignore
 
+sleep 2
 echo
 echo "Installing fonts..."
 
