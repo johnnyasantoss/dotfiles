@@ -11,6 +11,12 @@ fi
 # Ignora no histórico linhas vazias, exit, ls e duplicatas
 export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls'
 
+# Powerline start
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
+
 # Alias
 if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
