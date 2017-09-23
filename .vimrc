@@ -22,10 +22,10 @@ let g:signify_vcs_list = [ 'git', 'hg' ]
 let g:airline_theme='deus'
 
 " Disable arrows keys
-noremap <Up> :echo Use K!
-noremap <Down> :echo Use J!
-noremap <Left> :echo Use H!
-noremap <Right> :echo Use L!
+noremap <Up> :echo 'Use K!'<cr>
+noremap <Down> :echo 'Use J!'<cr>
+noremap <Left> :echo 'Use H!'<cr>
+noremap <Right> :echo 'Use L!'<cr>
 
 
 " toggle invisible characters
