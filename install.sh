@@ -15,8 +15,10 @@ rm -f ~/.gitignore
 
 echo
 echo "Changing permissions of ssh default keys..."
+sudo chmod 755 $HOME/.ssh
 sudo chmod 600 $HOME/.ssh/id_rsa
 sudo chmod 600 $HOME/.ssh/id_rsa.pub
+sudo chmod 644 $HOME/.ssh/know_hosts
 
 sleep 2
 
