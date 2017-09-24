@@ -27,6 +27,7 @@ noremap <Down> :echo 'Use J!'<cr>
 noremap <Left> :echo 'Use H!'<cr>
 noremap <Right> :echo 'Use L!'<cr>
 
+map <C-n> :NERDTreeToggle<CR>
 
 " toggle invisible characters
 set invlist

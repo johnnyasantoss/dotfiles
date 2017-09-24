@@ -18,3 +18,9 @@ alias clip='xclip -selection clip'
 # SSH 
 alias ssh-add="ssh-add -t 1h"
 
+# Edit commom files
+
+alias vimrc="vim ~/.vimrc"
+alias bashrc="vim ~/.bashrc"
+alias sshadddef="ssh-add ~/.ssh/id_rsa"
+
