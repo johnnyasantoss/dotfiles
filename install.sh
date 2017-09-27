@@ -54,6 +54,10 @@ cd $BASEDIR
 
 echo
 echo "Installing all the software I need..."
+
+# Install plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # TODO: This needs to be platform agnostic
 DEPS="
 git 
