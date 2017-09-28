@@ -8,7 +8,7 @@ echo "Creating symlinks..."
 
 for f in $BASEDIR/.*
 do
-    [ -f "$f" ] && ln -vsf $f ~/
+    [ -f "$f" ] && ln -vsf "$f" ~/
 done
 
 rm -f ~/.gitignore
@@ -18,7 +18,7 @@ echo "Changing permissions of ssh default keys..."
 sudo chmod 755 $HOME/.ssh
 sudo chmod 600 $HOME/.ssh/id_rsa
 sudo chmod 600 $HOME/.ssh/id_rsa.pub
-sudo chmod 644 $HOME/.ssh/know_hosts
+sudo chmod 644 $HOME/.ssh/known_hosts
 
 sleep 2
 
@@ -47,7 +47,7 @@ unzip FiraCode.zip -d .
 # Change the font files permissions
 for f in ./*.otf
 do
-    [ -f "$f" ] && chmod 755 $f
+    [ -f "$f" ] && chmod 755 "$f"
 done
 
 echo
