@@ -42,7 +42,7 @@ curl -OL https://raw.githubusercontent.com/tonsky/FiraCode/master/distr/otf/Fira
 
 # Firacode patched with nerdfonts
 curl -OL https://github.com/ryanoasis/nerd-fonts/releases/download/v1.1.0/FiraCode.zip
-unzip FiraCode.zip -d
+unzip FiraCode.zip -d .
 
 # Change the font files permissions
 for f in ./*.otf
@@ -64,6 +64,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 # TODO: This needs to be platform agnostic
 DEPS="
+xclip 
 git 
 tmux 
 vim 
@@ -82,9 +83,10 @@ if [[ $MACHINE_INFO == *"MANJARO"* ]]; then
 elif [[ $MACHINE_INFO == *"UBUNTU"* ]]; then
     sudo apt-get update -qq
     sudo apt-get install -y $DEPS
-elif [[ $MACHINE_INFO == *"FEDORA"* ]]; then
+elif [[ $MACHINE_INFO == *"fc2"* ]]; then
+    # Fedora
     sudo dnf update
     sudo dnf install -y $DEPS
 fi
-sudo pip install powerline-status
+sudo pip3 install powerline-status
 
