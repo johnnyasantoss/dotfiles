@@ -9,3 +9,8 @@
     st = status
 [credential]
 	helper = cache --timeout=300
+[core]
+	autocrlf = input
+	editor = vim
+[help]
+	autocorrect = 5
