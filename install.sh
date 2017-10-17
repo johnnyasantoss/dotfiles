@@ -62,31 +62,6 @@ echo "Installing all the software I need..."
 # Install plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# TODO: This needs to be platform agnostic
-DEPS="
-xclip 
-git 
-tmux 
-vim 
-docker 
-mono 
-nodejs 
-npm 
-yarn 
-p7zip-full 
-p7zip-plugins 
-"
-MACHINE_INFO=`uname -a`
-
-if [[ $MACHINE_INFO == *"MANJARO"* ]]; then
-    sudo pacman -Syu $DEPS
-elif [[ $MACHINE_INFO == *"UBUNTU"* ]]; then
-    sudo apt-get update -qq
-    sudo apt-get install -y $DEPS
-elif [[ $MACHINE_INFO == *"fc2"* ]]; then
-    # Fedora
-    sudo dnf update
-    sudo dnf install -y $DEPS
-fi
+# Install powerline
 sudo pip3 install powerline-status
 
