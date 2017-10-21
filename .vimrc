@@ -27,6 +27,12 @@ noremap <Down> :echo 'Use J!'<cr>
 noremap <Left> :echo 'Use H!'<cr>
 noremap <Right> :echo 'Use L!'<cr>
 
+" Keys to nagivagate between splits
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
 map <C-n> :NERDTreeToggle<CR>
 
 " toggle invisible characters
