@@ -38,5 +38,6 @@ sudo dnf -y install \
 	gstreamer \
 	gstreamer-plugins-good \
 	gstreamer-plugins-bad \
-	code
+	code \
+	openvpn
 
