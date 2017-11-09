@@ -19,6 +19,8 @@ curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
 
 echo "Installing packages..."
 
+sudo easy_install -U shodan
+
 sudo dnf -y install \
 	nethogs \
 	xclip \
