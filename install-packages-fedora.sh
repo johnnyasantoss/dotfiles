@@ -7,6 +7,10 @@ sudo dnf config-manager \
 	    --add-repo \
 	        https://download.docker.com/linux/fedora/docker-ce.repo
 
+# .NET Core
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[packages-microsoft-com-prod]\nname=packages-microsoft-com-prod \nbaseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/dotnetdev.repo'
+
 # VsCode
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
@@ -41,5 +45,9 @@ sudo dnf -y install \
 	gstreamer-plugins-good \
 	gstreamer-plugins-bad \
 	code \
-	openvpn
+	openvpn \
+	libunwind \
+	libicu \
+	compat-openssl10 \
+	dotnet-sdk-2.0.2
 
