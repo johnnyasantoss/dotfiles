@@ -49,5 +49,6 @@ sudo dnf -y install \
 	libunwind \
 	libicu \
 	compat-openssl10 \
-	dotnet-sdk-2.0.2
+	dotnet-sdk-2.0.2 \
+	flatpak
 
