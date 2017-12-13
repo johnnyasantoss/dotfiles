@@ -50,5 +50,9 @@ sudo dnf -y install \
 	libicu \
 	compat-openssl10 \
 	dotnet-sdk-2.0.2 \
-	flatpak
+	flatpak \
+	gstreamer-plugins-bad \
+	gstreamer-plugins-good \
+	gstreamer-ffmpeg \
+	ffmpeg
 
