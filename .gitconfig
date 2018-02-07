@@ -1,7 +1,6 @@
 [user]
     email = johnnyadsantos@gmail.com
     name = Johnny Santos
-
 [alias]
     tags = tag -l
     branches = branch -a
@@ -14,3 +13,5 @@
 	editor = vim
 [help]
 	autocorrect = 5
+[commit]
+	gpgsign = true
