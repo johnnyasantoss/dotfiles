@@ -1,6 +1,7 @@
 [user]
     email = johnnyadsantos@gmail.com
     name = Johnny Santos
+	signingkey = 76AC83F1AA149FF9CB1EE8F8F6B94BACB8DF2685
 [alias]
     tags = tag -l
     branches = branch -a
