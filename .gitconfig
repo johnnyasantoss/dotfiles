@@ -16,3 +16,5 @@
 	autocorrect = 5
 [commit]
 	gpgsign = true
+[push]
+	default = matching
