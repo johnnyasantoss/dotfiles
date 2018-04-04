@@ -24,3 +24,11 @@ alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
 alias sshadddef="ssh-add ~/.ssh/id_rsa"
 
+# # # K8s # # #
+
+alias kswitch='kubectl config use-context'
+alias knamespace='kubectl config set-context `kubectl config current-context` --namespace'
+alias ksvc="kubectl get --all-namespaces svc -o json | jq -r '.items[] | [.metadata.name,([.spec.ports[].nodePort | tostring ] | join(\"|\"))] | @csv'"
+alias kpods="kubectl get po"
+alias kinspect="kubectl describe"
+

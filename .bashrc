@@ -18,7 +18,7 @@ export VISUAL="vim"
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /usr/local/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
+. `pip show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/bash/powerline.sh
 
 # Aliases
 if [ -f $HOME/.bash_aliases ]; then
@@ -42,3 +42,4 @@ if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && { tmux attach || exec tmux new-session && exit;}
 fi
 
+source <(kubectl completion bash)

@@ -63,5 +63,7 @@ echo "Installing all the software I need..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install powerline
+echo "Installing powerline..."
 sudo pip3 install powerline-status
+ln -vsf `pip show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/tmux/powerline.conf ~/.tmux-powerline.conf
 
