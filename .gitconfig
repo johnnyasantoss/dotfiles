@@ -17,4 +17,4 @@
 [commit]
 	gpgsign = true
 [push]
-	default = matching
+	default = current
