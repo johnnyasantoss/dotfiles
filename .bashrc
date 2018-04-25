@@ -35,6 +35,11 @@ if [ -f $HOME/.bash_functions ]; then
     . $HOME/.bash_functions
 fi
 
+# Completion
+if [ -f $HOME/.bash_completion ]; then
+    . $HOME/.bash_completion
+fi
+
 # Additional path sources
 
 # Powerline start
@@ -45,6 +50,3 @@ if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && { tmux attach || exec tmux new-session && exit;}
 fi
 
-if [ -z "$(which kubectl)" ]; then
-    source <(kubectl completion bash)
-fi
