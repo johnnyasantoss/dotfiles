@@ -28,6 +28,8 @@ if [ -z $POWERLINE_BASH_BINDINGS ]; then
     eval $bash_bindings
 fi
 
+eval ". $POWERLINE_BASH_BINDINGS"
+
 # Functions
 if [ -f $HOME/.bash_functions ]; then
     . $HOME/.bash_functions
