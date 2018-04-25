@@ -64,6 +64,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 # Install powerline
 echo "Installing powerline..."
-sudo pip install powerline-status
-ln -vsf `pip show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/tmux/powerline.conf ~/.tmux-powerline.conf
+sudo pip3 install powerline-status
+ln -vsf `pip3 show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/tmux/powerline.conf ~/.tmux-powerline.conf
 

@@ -1,0 +1,22 @@
+# Ignora no histórico linhas vazias, exit, ls e duplicatas
+export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls'
+export MAINTAINER="johnnyadsantos@gmail.com"
+export EDITOR="vim"
+export VISUAL="vim"
+
+function if_exists_add_to_path() {
+    if [ -d $1 ]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+# Yarn
+if_exists_add_to_path "$HOME/.yarn/bin"
+
+# Cargo
+if_exists_add_to_path "$HOME/.cargo/bin"
+
+# Powerline
+export POWERLINE_BASH_CONTINUATION=1
+export POWERLINE_BASH_SELECT=1
+
