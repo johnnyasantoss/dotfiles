@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo "Initializing git submodules"
+git submodule init
+git submodule update
+
 BASEDIR=$(realpath `dirname "$0"`)
 echo $BASEDIR
 echo "Using base directory '$BASEDIR'"
@@ -10,6 +14,7 @@ for f in $BASEDIR/.*
 do
     [ -f "$f" ] && ln -vsf "$f" ~/
 done
+ln -vsf `pwd`/.tmux/ ~/
 
 rm -f ~/.gitignore
 
