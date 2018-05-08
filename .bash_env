@@ -16,6 +16,10 @@ if_exists_add_to_path "$HOME/.yarn/bin"
 # Cargo
 if_exists_add_to_path "$HOME/.cargo/bin"
 
+# Go
+if_exists_add_to_path "$HOME/.go/bin"
+export GOROOT="$HOME/.go"
+
 # Powerline
 export POWERLINE_BASH_CONTINUATION=1
 export POWERLINE_BASH_SELECT=1
