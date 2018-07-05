@@ -54,5 +54,6 @@ sudo dnf -y install \
 	gstreamer-plugins-bad \
 	gstreamer-plugins-good \
 	gstreamer-ffmpeg \
-	ffmpeg
+	ffmpeg \
+	workrave
 
