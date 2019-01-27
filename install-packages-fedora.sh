@@ -41,6 +41,12 @@ if ! [ -x "$(command -v node)"  ]; then
 	sudo sh -c 'curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -'
 fi
 
+# Rust
+if ! [ -x "$(command -v node)"  ]; then
+	echo "Installing Rust Toolchain..."
+	curl https://sh.rustup.rs -sSf | sh
+fi
+
 echo "Installing packages..."
 
 prompt_confirm "Install Shodan?" && sudo easy_install -U shodan
