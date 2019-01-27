@@ -1,9 +1,11 @@
 alias df="df -h"
 alias du="du -h"
 
+# Let's try Podman
+alias docker="podman"
+
 # More is less and the cake is a lie
 alias more="less"
-alias myip="curl http://ipecho.net/plain; echo"
 
 # Directory and listing                 
 alias ls="ls -ahF --color=always"
