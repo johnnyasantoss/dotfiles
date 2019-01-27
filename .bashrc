@@ -37,6 +37,14 @@ if [ -d "$HOME/.yarn/bin" ]; then
     export PATH=$PATH:"$HOME/.yarn/bin"
 fi
 
+if [ -d "${HOME}/.bin" ] ; then
+  export PATH="${HOME}/.bin:${PATH}"
+fi
+
+if [ -d "${HOME}/.cargo/bin" ] ; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 # Tmux start
 if command -v tmux>/dev/null; then
     [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && { tmux attach || exec tmux new-session && exit;}
