@@ -45,6 +45,10 @@ fi
 if ! [ -x "$(command -v node)"  ]; then
 	echo "Installing Rust Toolchain..."
 	curl https://sh.rustup.rs -sSf | sh
+
+	cargo install \
+		bat \
+		peep
 fi
 
 echo "Installing packages..."
