@@ -1,24 +1,51 @@
 #!/usr/bin/bash
 
+prompt_confirm() {
+  while true; do
+    read -r -n 1 -p "${1:-Continue?} [y/n]: " REPLY
+    case $REPLY in
+      [yY]) echo ; return 0 ;;
+      [nN]) echo ; return 1 ;;
+      *) printf " \033[31m %s \n\033[0m" "invalid input"
+    esac 
+  done  
+}
+
 echo "Adding repos..."
 
 # .NET Core
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo sh -c 'echo -e "[packages-microsoft-com-prod]\nname=packages-microsoft-com-prod \nbaseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/dotnetdev.repo'
+if ! [ -f "/etc/yum.repos.d/microsoft-prod.repo" ]; then
+	echo "Adding .NET Core repo..."
+	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+	wget -q https://packages.microsoft.com/config/fedora/27/prod.repo
+	sudo mv prod.repo /etc/yum.repos.d/microsoft-prod.repo
+	sudo chown root:root /etc/yum.repos.d/microsoft-prod.repo
+fi
 
 # VsCode
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+if ! [ -f "/etc/yum.repos.d/vscode.repo" ]; then
+	echo "Adding VSCode repo..."
+	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+	sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+fi
 
 # Yarn
-sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+if ! [ -f "/etc/yum.repos.d/yarn.repo" ]; then
+	echo "Adding Yarn repo..."
+	sudo sh -c 'curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo > /etc/yum.repos.d/yarn.repo'
+fi
 
 # Nodejs
-curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+if ! [ -x "$(command -v node)"  ]; then
+	echo "Adding NodeJS repo..."
+	sudo sh -c 'curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -'
+fi
 
 echo "Installing packages..."
 
-sudo easy_install -U shodan
+prompt_confirm "Install Shodan?" && sudo easy_install -U shodan
+
+prompt_confirm "Install OpenVPN?" && sudo dnf -y install openvpn
 
 sudo dnf -y install \
 	nethogs \
@@ -26,7 +53,6 @@ sudo dnf -y install \
 	menulibre \
 	git \
 	tmux \
-	mercurial \
 	vim-enhanced \
 	p7zip-plugins \
 	nodejs \
@@ -40,15 +66,12 @@ sudo dnf -y install \
 	gstreamer-plugins-good \
 	gstreamer-plugins-bad \
 	code \
-	openvpn \
 	libunwind \
 	libicu \
 	compat-openssl10 \
-	dotnet-sdk-2.0.2 \
 	flatpak \
 	gstreamer-plugins-bad \
 	gstreamer-plugins-good \
 	gstreamer-ffmpeg \
 	ffmpeg \
 	workrave
-
