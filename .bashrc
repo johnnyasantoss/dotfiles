@@ -15,10 +15,12 @@ export EDITOR="vim"
 export VISUAL="vim"
 
 # Powerline start
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. `pip show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/bash/powerline.sh
+if [ -x "$(command -v powerline-daemon)"  ]; then
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . `pip show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/bash/powerline.sh
+fi
 
 # Aliases
 if [ -f $HOME/.bash_aliases ]; then
@@ -31,15 +33,16 @@ if [ -f $HOME/.bash_functions ]; then
 fi
 
 # Additional path sources
-
 if [ -d "$HOME/.yarn/bin" ]; then
     export PATH=$PATH:"$HOME/.yarn/bin"
 fi
 
-
 # Tmux start
 if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && { tmux attach || exec tmux new-session && exit;}
+    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && { tmux attach || exec tmux new-session && exit;}
 fi
 
-source <(kubectl completion bash)
+# K8s
+if [ -x "$(command -v kubectl)"  ]; then
+    source <(kubectl completion bash)
+fi
