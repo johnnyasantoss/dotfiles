@@ -1,11 +1,6 @@
 #!/usr/bin/bash
 
 echo "Adding repos..."
-# Docker
-sudo dnf -y install dnf-plugins-core
-sudo dnf config-manager \
-	    --add-repo \
-	        https://download.docker.com/linux/fedora/docker-ce.repo
 
 # .NET Core
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -35,7 +30,7 @@ sudo dnf -y install \
 	vim-enhanced \
 	p7zip-plugins \
 	nodejs \
-	docker-ce \
+	podman \
 	yarn \
 	gcc-c++ \
 	make \
