@@ -19,7 +19,8 @@ if [ -x "$(command -v powerline-daemon)"  ]; then
     powerline-daemon -q
     POWERLINE_BASH_CONTINUATION=1
     POWERLINE_BASH_SELECT=1
-    . `pip show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/bash/powerline.sh
+    POWERLINE_BASE_PATH=$(pip show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1')
+    . $POWERLINE_BASE_PATH/powerline/bindings/bash/powerline.sh
 fi
 
 # Aliases

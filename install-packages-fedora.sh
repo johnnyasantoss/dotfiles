@@ -55,7 +55,16 @@ echo "Installing packages..."
 
 prompt_confirm "Install Shodan?" && sudo easy_install -U shodan
 
-prompt_confirm "Install OpenVPN?" && sudo dnf -y install openvpn
+prompt_confirm "Install VPN?" && sudo dnf -y install \
+    openvpn \
+    dialog \
+    wget \
+    procps-ng \
+    coreutils \
+    && curl -SfLO "https://github.com/ProtonVPN/protonvpn-cli/raw/master/protonvpn-cli.sh" \
+    && sudo bash protonvpn-cli.sh --install \
+    && rm protonvpn-cli.sh
+
 
 sudo dnf -y install \
 	nethogs \
