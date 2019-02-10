@@ -8,6 +8,12 @@ BASEDIR=$(realpath `dirname "$0"`)
 echo $BASEDIR
 echo "Using base directory '$BASEDIR'"
 echo
+
+# Copy config
+! [ -d "~/.config/" ] && mkdir ~/.config/
+
+cp -r ./.config/ ~/
+
 echo "Creating symlinks..."
 
 for f in $BASEDIR/.*

@@ -16,6 +16,10 @@ if_exists_add_to_path "$HOME/.yarn/bin"
 # Cargo
 if_exists_add_to_path "$HOME/.cargo/bin"
 
+# Binaries
+if_exists_add_to_path "$HOME/.bin"
+if_exists_add_to_path "$HOME/bin"
+
 # Go
 if_exists_add_to_path "$HOME/.go/bin"
 export GOROOT="$HOME/.go"
