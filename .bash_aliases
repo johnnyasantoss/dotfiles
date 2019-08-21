@@ -1,9 +1,6 @@
 alias df="df -h"
 alias du="du -h"
 
-# Let's try Podman
-alias docker="podman"
-
 # peep is nice
 alias more="peep"
 alias less="peep"

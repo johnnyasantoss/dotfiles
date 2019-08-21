@@ -24,6 +24,9 @@ if_exists_add_to_path "$HOME/bin"
 if_exists_add_to_path "$HOME/.go/bin"
 export GOROOT="$HOME/.go"
 
+# Pip
+if_exists_add_to_path "$HOME/.local/bin"
+
 # Powerline
 export POWERLINE_BASH_CONTINUATION=1
 export POWERLINE_BASH_SELECT=1
