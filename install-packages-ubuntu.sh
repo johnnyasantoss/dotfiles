@@ -25,7 +25,7 @@ sudo apt-get install -y \
     software-properties-common
 
 # Docker
-if ! [ -f "/etc/apt/sources.list.d/docker-ce.list" ]; then
+if prompt_confirm "Install Docker?" && ! [ -f "/etc/apt/sources.list.d/docker-ce.list" ]; then
     sudo apt-get remove --purge docker docker-engine docker.io
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo add-apt-repository \
@@ -35,21 +35,21 @@ if ! [ -f "/etc/apt/sources.list.d/docker-ce.list" ]; then
 fi
 
 # .NET Core
-if ! [ -f "/etc/apt/sources.list.d/packages-microsoft-prod.list" ]; then
+if prompt_confirm "Install dotnet?" && ! [ -f "/etc/apt/sources.list.d/packages-microsoft-prod.list" ]; then
     echo "Adding .NET Core sources..."
     wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
 fi
 
 # Yarn
-if ! [ -f "/etc/apt/sources.list.d/yarn.list" ]; then
+if prompt_confirm "Install yarn?" && ! [ -f "/etc/apt/sources.list.d/yarn.list" ]; then
     echo "Adding Yarn repo..."
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 fi
 
 # Nodejs
-if ! [ -x "$(command -v node)"  ]; then
+if prompt_confirm "Install NodeJS?" && ! [ -x "$(command -v node)"  ]; then
     echo "Adding NodeJS repo..."
     sudo sh -c 'curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -'
 fi
@@ -112,5 +112,7 @@ sudo apt-get -y install \
 	flatpak \
 	gstreamer1.0-plugins-bad \
 	gstreamer1.0-plugins-good \
-	ffmpeg
+	ffmpeg \
+	rng-tools \
+	haveged
 
