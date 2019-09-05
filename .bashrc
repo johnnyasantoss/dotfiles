@@ -46,5 +46,5 @@ fi
 
 # Tmux start
 if [ -x "$(command -v tmux)"  ]; then
-    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && { tmux attach || exec tmux new-session && exit;}
+    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && { tmux attach || exec tmux new-session; }
 fi
