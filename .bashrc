@@ -45,6 +45,6 @@ if [ -f $HOME/.bash_completion ]; then
 fi
 
 # Tmux start
-if [ -x "$(command -v tmux)"  ]; then
-    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && { tmux attach || exec tmux new-session; }
+if [ -x "$(command -v tmux)" ] && [[ ! "$TERM" =~ screen ]] && [ -z "$TMUX" ]; then
+  tmux attach "local" || exec -a tmux tmux new -s "local"
 fi
