@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Disable Ctrl-S and Ctrl-Q
+stty -ixon
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
