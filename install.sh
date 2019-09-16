@@ -52,7 +52,7 @@ curl -OL https://raw.githubusercontent.com/tonsky/FiraCode/master/distr/otf/Fira
 curl -OL https://raw.githubusercontent.com/tonsky/FiraCode/master/distr/otf/FiraCode-Retina.otf
 
 # Firacode patched with nerdfonts
-curl -OL https://github.com/ryanoasis/nerd-fonts/releases/download/v1.1.0/FiraCode.zip
+curl -OL https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/FiraCode.zip
 unzip FiraCode.zip -d .
 
 # Change the font files permissions

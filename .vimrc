@@ -1,4 +1,3 @@
-
 " Start plugins section
 call plug#begin('~/.vim/plugged')
 
@@ -127,6 +126,15 @@ let g:airline_powerline_fonts=1
 let g:signify_vcs_list = [ 'git', 'hg' ]
 let g:airline_theme='deus'
 
+" UltiSnips
+" Trigger configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 " Disable arrows keys
 noremap <Up> :echo 'Use K!'<cr>
 noremap <Down> :echo 'Use J!'<cr>
@@ -134,10 +142,10 @@ noremap <Left> :echo 'Use H!'<cr>
 noremap <Right> :echo 'Use L!'<cr>
 
 " Keys to nagivagate between splits
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+nmap <silent> <A-k> :wincmd k<CR>
+nmap <silent> <A-j> :wincmd j<CR>
+nmap <silent> <A-h> :wincmd h<CR>
+nmap <silent> <A-l> :wincmd l<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -150,3 +158,10 @@ set showbreak=↪
 " Paste toggle so it disables auto indent
 set pastetoggle=<F2>
 
+" Useful stuff
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set number
+set relativenumber
+set ignorecase
