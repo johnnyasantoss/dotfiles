@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Return if not in an interactive instance
+[[ "$-" != *i* ]] && return
+
 # Disable Ctrl-S and Ctrl-Q
 stty -ixon
 
@@ -7,9 +10,6 @@ stty -ixon
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
-
-# This is for cygwin
-[[ "$-" != *i* ]] && return
 
 # Aliases
 if [ -f $HOME/.bash_aliases ]; then
@@ -49,5 +49,5 @@ fi
 
 # Tmux start
 if [ -x "$(command -v tmux)" ] && [[ ! "$TERM" =~ screen ]] && [ -z "$TMUX" ]; then
-  tmux attach "local" || exec -a tmux tmux new -s "local"
+  tmux attach -t "local" || exec -a tmux tmux new -s "local"
 fi
