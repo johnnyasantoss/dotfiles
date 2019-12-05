@@ -13,7 +13,9 @@ alias l="ls -CF"
 alias ..="cd .."
 alias ...="cd ../.."
 
-alias clip='xclip -selection clip'
+# more consistent copy-paste
+alias pbcopy="xclip -selection clipboard"
+alias pbpaste="xclip -selection clipboard -o"
 
 # SSH 
 alias ssh-add="ssh-add -t 1h"
