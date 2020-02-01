@@ -1,3 +1,0 @@
-[submodule ".tmux/kube-tmux"]
-	path = .tmux/kube-tmux
-	url = git@github.com:jonmosco/kube-tmux.git
