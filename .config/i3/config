@@ -137,8 +137,8 @@ assign [class="Gnome-terminal"] $ws1
 # Workspace 2: Internet
 assign [class="Firefox"] $ws2
 
-# Workspace 4: Music
-assign [class="Spotify"] $ws4
+# Workspace 3: Music
+assign [instance="spotify"] $ws3
 
 # Workspace 10: Messaging
 assign [class="Signal"] $ws10
@@ -197,8 +197,25 @@ bindsym $mod+m mode "machine"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+  status_command i3status
+  colors {
+    separator  #65737E
+    background #1B2B34
+    statusline #D8DEE9
+    focused_workspace  #6699CC #6699CC #1B2B34 #1d1f21
+    active_workspace   #5FB3B3 #5FB3B3 #1B2B34 #ffffff
+    inactive_workspace #343D46 #343D46 #D8DEE9 #969896
+    urgent_workspace   #EC5f67 #EC5f67 #1B2B34 #ffffff
+  }
 }
+# Colors
+client.focused          #6699CC #6699CC #1B2B34 #6699CC
+client.focused_inactive #5FB3B3 #5FB3B3 #D8DEE9 #A7ADBA
+client.unfocused        #343D46 #343D46 #D8DEE9 #343D46
+client.urgent           #EC5f67 #EC5f67 #1B2B34 #EC5f67
+
+# Padding
+#tray_padding 5
 
 # Media keys
 # Pulse Audio controls
@@ -207,8 +224,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 -time 500 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 -time 500 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -219,12 +236,12 @@ bindsym XF86AudioPrev exec playerctl previous
 # Open apps/programs automatically on startup
 
 # Messengers
-exec signal-desktop
-exec flatpak run org.telegram.desktop
-exec flatpak run com.slack.Slack
+exec flatpak run org.telegram.desktop -startintray
+exec flatpak run com.slack.Slack -u
 
 # Internet
 exec firefox
 
 # Music
 exec flatpak run com.spotify.Client
+
