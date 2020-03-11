@@ -3,8 +3,15 @@
 # Return if not in an interactive instance
 [[ "$-" != *i* ]] && return
 
-# Disable Ctrl-S and Ctrl-Q
-stty -ixon
+# Tmux start
+
+if [ -z "$TMUX_SESSION" ]; then
+    TMUX_SESSION="local"
+fi
+
+if [ ! "$TMUX_SESSION" = "nop" ] && [ -x "$(command -v tmux)" ] && [[ ! "$TERM" =~ screen ]] && [ -z "$TMUX" ]; then
+    tmux attach -t "$TMUX_SESSION" || tmux new -s "$TMUX_SESSION"
+fi
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -24,6 +31,7 @@ fi
 if [ -f $HOME/.bash_env_local ]; then
     . $HOME/.bash_env_local
 else
+    echo "Generating powerline bash bindings..."
     bash_bindings="\
 export POWERLINE_BASH_BINDINGS=`pip3 show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/bash/powerline.sh\n\
 "
@@ -45,14 +53,4 @@ fi
 # Completion
 if [ -f $HOME/.bash_completion ]; then
     . $HOME/.bash_completion
-fi
-
-# Tmux start
-
-if [ -z "$TMUX_SESSION" ]; then
-    TMUX_SESSION="local"
-fi
-
-if [ ! "$TMUX_SESSION" = "nop" ] && [ -x "$(command -v tmux)" ] && [[ ! "$TERM" =~ screen ]] && [ -z "$TMUX" ]; then
-    tmux attach -t "$TMUX_SESSION" || tmux new -s "$TMUX_SESSION"
 fi
