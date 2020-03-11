@@ -184,7 +184,7 @@ mode "machine" {
     # This should be used to control volume and screen brigthness
 
     # Locks the current session
-    bindsym $mod+l exec i3lock
+    bindsym $mod+l exec i3lock -c 000000 -f
 
     # back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
@@ -244,4 +244,7 @@ exec firefox
 
 # Music
 exec flatpak run com.spotify.Client
+
+# Visual stuff
+exec compton -f
 
