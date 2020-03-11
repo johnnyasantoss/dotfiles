@@ -53,6 +53,6 @@ if [ -z "$TMUX_SESSION" ]; then
     TMUX_SESSION="local"
 fi
 
-if [ -x "$(command -v tmux)" ] && [[ ! "$TERM" =~ screen ]] && [ -z "$TMUX" ]; then
+if [ ! "$TMUX_SESSION" = "nop" ] && [ -x "$(command -v tmux)" ] && [[ ! "$TERM" =~ screen ]] && [ -z "$TMUX" ]; then
     tmux attach -t "$TMUX_SESSION" || tmux new -s "$TMUX_SESSION"
 fi
