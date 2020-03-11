@@ -1,4 +1,9 @@
 # Kubectl
-if [ -x "$(command -v kubectl)" ]; then
-    source <(kubectl completion bash)
-fi
+#if [ -x "$(command -v kubectl)" ]; then
+#    source <(kubectl completion bash)
+#fi
+
+# Flutter
+#if [ -x "$(command -v flutter)" ]; then
+#    source <(flutter bash-completion)
+#fi
