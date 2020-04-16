@@ -53,7 +53,12 @@ curl -OL https://raw.githubusercontent.com/tonsky/FiraCode/master/distr/otf/Fira
 
 # Firacode patched with nerdfonts
 curl -OL https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/FiraCode.zip
-unzip FiraCode.zip -d .
+unzip -oj FiraCode.zip -d .
+rm FireCode.zip
+
+jbm="JetBrainsMono-1.0.3"
+curl -OL https://download.jetbrains.com/fonts/$jbm.zip
+unzip -oj $jbm $jbm/ttf/* -d .
 
 # Change the font files permissions
 for f in ./*.otf
