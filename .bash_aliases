@@ -1,10 +1,6 @@
 alias df="df -h"
 alias du="du -h"
 
-# peep is nice
-alias more="peep"
-alias less="peep"
-
 # Directory and listing                 
 alias ls="ls -ahF --color=always"
 alias ll="ls -l --color=always"

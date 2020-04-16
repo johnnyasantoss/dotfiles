@@ -18,6 +18,11 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+# Functions
+if [ -f $HOME/.bash_functions ]; then
+    . $HOME/.bash_functions
+fi
+
 # Aliases
 if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
@@ -45,12 +50,8 @@ if [ -x "$(command -v powerline-daemon)" ]; then
     powerline-daemon -q
 fi
 
-# Functions
-if [ -f $HOME/.bash_functions ]; then
-    . $HOME/.bash_functions
+# Completion
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
 fi
 
-# Completion
-if [ -f $HOME/.bash_completion ]; then
-    . $HOME/.bash_completion
-fi
