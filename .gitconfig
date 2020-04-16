@@ -1,20 +1,42 @@
 [user]
-    email = johnnyadsantos@gmail.com
-    name = Johnny Santos
+	email = johnnyadsantos@gmail.com
+	name = Johnny Santos
 	signingkey = 76AC83F1AA149FF9CB1EE8F8F6B94BACB8DF2685
+
 [alias]
-    tags = tag -l
-    branches = branch -a
-    remotes = remote -v
-    st = status
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+	st = status
+
 [credential]
 	helper = cache --timeout=300
 [core]
 	autocrlf = input
 	editor = vim
 [help]
-	autocorrect = 5
+	autocorrect = 50
 [commit]
 	gpgsign = true
 [push]
 	default = current
+
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[merge]
+	tool = meld
+[mergetool]
+	prompt = false
+	keepBackup = false
+
+# Diff and Merge with JetBrains Rider
+[difftool "rider"]
+	cmd = /home/johnny/.bin/rider diff "$LOCAL" "$REMOTE"
+[mergetool "rider"]
+	cmd = /home/johnny/.bin/rider merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+	trustExitCode = true
+
+[gui]
+	editor = code
