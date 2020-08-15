@@ -13,7 +13,7 @@
 	helper = cache --timeout=300
 [core]
 	autocrlf = input
-	editor = vim
+	editor = code --wait --new-window
 [help]
 	autocorrect = 50
 [commit]
@@ -26,7 +26,7 @@
 [difftool]
 	prompt = false
 [merge]
-	tool = meld
+	tool = bcompare
 [mergetool]
 	prompt = false
 	keepBackup = false
@@ -36,6 +36,12 @@
 	cmd = /home/johnny/.bin/rider diff "$LOCAL" "$REMOTE"
 [mergetool "rider"]
 	cmd = /home/johnny/.bin/rider merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+	trustExitCode = true
+
+[difftool "bcompare"]
+	cmd = /usr/bin/bcompare --solo --vcsleft="$LOCAL" --vcsright="$REMOTE"
+[mergetool "bcompare"]
+	cmd = /usr/bin/bcompare --automerge --solo --leftreadonly --rightreadonly "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 	trustExitCode = true
 
 [gui]
