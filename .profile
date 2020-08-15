@@ -30,3 +30,9 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Flutter
 export PATH="$PATH:$HOME/.flutter-sdk/bin"
+export PATH="$PATH:/usr/lib/dart/bin"
+
+# Deno
+export DENO_INSTALL="/home/johnny/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
