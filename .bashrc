@@ -37,9 +37,7 @@ if [ -f $HOME/.bash_env_local ]; then
     . $HOME/.bash_env_local
 else
     echo "Generating powerline bash bindings..."
-    bash_bindings="\
-export POWERLINE_BASH_BINDINGS=`pip3 show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/bash/powerline.sh\n\
-"
+    bash_bindings="export POWERLINE_BASH_BINDINGS=`python3 -m pip show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/bash/powerline.sh"
     echo -e $bash_bindings >> $HOME/.bash_env_local
     eval $bash_bindings
 fi

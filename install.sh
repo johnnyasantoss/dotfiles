@@ -80,6 +80,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 # Install powerline
 echo "Installing powerline..."
-sudo python3 -m pip install powerline-status
+python3 -m pip install powerline-status
 ln -vsf `python3 -m pip show powerline-status | grep -i location | cut -d':' -s -f2 | awk '{$1=$1};1'`/powerline/bindings/tmux/powerline.conf ~/.tmux-powerline.conf
 
