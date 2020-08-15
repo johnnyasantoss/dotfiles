@@ -1,9 +1,3 @@
-# Kubectl
-#if [ -x "$(command -v kubectl)" ]; then
-#  source <(kubectl completion bash)
-#fi
+# use /etc/bash_completion.d/
 
-# Flutter
-#if [ -x "$(command -v flutter)" ]; then
-#  source <(flutter bash-completion)
-#fi
+# Completion (uncomment section on /etc/bash.bashrc)

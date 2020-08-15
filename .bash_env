@@ -1,3 +1,5 @@
+# ~/.bash_env
+
 # Ignora no histórico linhas vazias, exit, ls e duplicatas
 export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls'
 export MAINTAINER="johnnyadsantos@gmail.com"

@@ -9,6 +9,11 @@
 #umask 022
 
 # set PATH so it includes user's private bin if it exists
+
+# ~/.profile
+
+source /etc/profile
+
 if [ -d "$HOME/.bin" ] ; then
     PATH="$HOME/.bin:$PATH"
 fi
